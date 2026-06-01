@@ -134,7 +134,30 @@ for (let i = 0; i < formInputs.length; i++) {
   });
 }
 
+const avatar = document.getElementById("profile-avatar");
 
+const oldPhoto = "./assets/images/my-avatar.png";
+const newPhoto = "./assets/images/ma-photo-profile.png";
+
+let showingOld = true;
+
+avatar.addEventListener("click", () => {
+
+  avatar.style.transform = "rotateY(180deg)";
+
+  setTimeout(() => {
+
+    avatar.src = showingOld ? newPhoto : oldPhoto;
+
+    showingOld = !showingOld;
+
+  }, 250);
+
+  setTimeout(() => {
+    avatar.style.transform = "rotateY(0deg)";
+  }, 500);
+
+});
 
 // page navigation variables
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
